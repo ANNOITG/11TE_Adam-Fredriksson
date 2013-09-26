@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+                                        /*Klasser skall placeras så att det är en klass per fil (med samma namn). Din kommentering kan förbättras.*/
 namespace _004_arv_praktiskt {
     class Program {
         
