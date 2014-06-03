@@ -11,43 +11,47 @@ using System.IO;
 
 namespace Windows_fileExplorer {
     public partial class Form1 : Form {
-        public string path = @"C:\";
-        public string[] filePaths;
+        public List<directoryItems> listOfDirectoryItems = new List<directoryItems>();
         public Form1() {
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e) {
+        }
+
+        private void getListOfSearchIndex(string searchIndex) {
+        }
+
         private void Form1_Load(object sender, EventArgs e) {
-            List<directoryClass> durr = getFilesInDirectory(path);
+            IEnumerable<string> listOfFiles = GetFileList("*", @"C:\");
         }
-
-        private List<directoryClass> getFilesInDirectory(string path) {
-            string[] files = Directory.GetDirectories(path);
-            if (files.Count() != 0) {
-                List<directoryClass> fileNames = new List<directoryClass>();
-                for (int i = 0; i < files.Count(); i++) {
-                    if (Path.GetFileName(files[i]) != "$Recycle.Bin")
-                        fileNames.Add(new directoryClass(files[i], Path.GetFileName(files[i])));
+        public static IEnumerable<string> GetFileList(string fileSearchPattern, string rootFolderPath) {
+            Queue<string> pending = new Queue<string>();
+            pending.Enqueue(rootFolderPath);
+            string[] tmp;
+            while (pending.Count > 0) {
+                rootFolderPath = pending.Dequeue();
+                tmp = Directory.GetFiles(rootFolderPath, fileSearchPattern);
+                for (int i = 0; i < tmp.Length; i++) {
+                    yield return tmp[i];
                 }
-
-                return fileNames;
+                tmp = Directory.GetDirectories(rootFolderPath);
+                for (int i = 0; i < tmp.Length; i++) {
+                    pending.Enqueue(tmp[i]);
+                }
             }
-            return new List<directoryClass>();
         }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e) {
-
-        }
-
 
     }
-    public class directoryClass {
-        public string filePath { get; set; }
-        public string fileName { get; set; }
 
-        public directoryClass(string filePath, string fileName) {
-            this.filePath = filePath;
+    public class directoryItems {
+        public string fileName { get; set; }
+        public string filePath { get; set; }
+        public List<directoryItems> listOfItemsInDirectory { get; set; }
+
+        public directoryItems(string fileName, string filePath) {
             this.fileName = fileName;
+            this.filePath = filePath;
         }
     }
 }

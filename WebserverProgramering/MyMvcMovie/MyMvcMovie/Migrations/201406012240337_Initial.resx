@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAM1Xy27bOhDdF+g/CFrdLmomaRe5gdIitZMiaJ0EkdP9WBo7RPlQScqwv62LflJ/4Q6tt/yImxbF3VHkzJkH58xQP7//iN4vpQgWaCzX6jw8HhyFAapEp1zNz8PczV6fhu/fvXwRXaZyGXyp5N54OdJU9jx8dC47Y8wmjyjBDiRPjLZ65gaJlgxSzU6Ojv5lx8cMCSIkrCCI7nPluMT1B30OtUowczmIsU5R2HKfTuI1anADEm0GCZ6H49V4kYz1guOgEA6DC8GBHIlRzMIge3v2YDF2Rqt5nIHjICarDOl8BsJi6fZZ9vZQz49OvOcMlNKO4LR6VuRhHRNFdUnRu5V3ax0ZBeXjaYuQ0CdcdTZo687oDI1b3eOsVLwehQHr6rG+Yq3W0vG2aaXcm5MwuMmFgKnAOkWUw9hpgx9RoQGH6R04h4Yu/jrFte8bVns2JtwJrMzQZVA5hcEVX2L6GdXcPdamxrCsdmgZBg+KU/WRkjM5tl0rvvdbvUeBYHFELle2/XpCpbYlyv1YFLv5+xHcGZ40vmPCJYgwuDO0Khl6GgZxAh5v28210SPW1Nlm9RHnHHC633YJjj74bVy6Xi0WKjG6tjAxrzFQ0G9QFPJWN2qDDbtZQe+qDbAdfSAaQ5ZR/lt9odwJ4qIpDF/Hv85KWWCwxG4hZ+1tbYkIAXPsnZJp8vSKG+uo0mAK/hKGqdwQOyy9lbFOlvtdoEl6Je7XpUq/Ow62tJZ2Bq8oKEmcXseHtSNbW1Kp6csPzJamMtQil2pXY9qnXbaLNkC5dThGh/xtpM7B4XhlA2gjlVuHY5R0bmOUW5sYEetdSf/e2cbF9xp/v4z2kbAvUluvydgjXVQS4OkJvcGIQsS3Maqp1LMhXlmHcuAFBvE3MRSc4m0ExqD4DK2b6K9IPY8Ie9qb8s+YwMzaVPwvxzD3sT85cH9xfnUmsFqASR7B/CNh+eoPTNWU1u63p+pvedWZlOnfnJSbHf+AYbl7VhbsoBimmsIpfKzm6zPn6CZVI9Z+ckcjtHzeQPgHuMLEP24b0ErmWs10lXsKqu1RJdK7mjE6oAqBC+P4DBJHxwlau35BfQGRk8ilnGJ6rW5zl+XuwlqUU9F5VEZsv/31Y6Hrc3Sb+S/7J0IgN7kv8lv1Iecirf2+2lI8OyB8mZR8Jq/oBUlw81WNdKPVgUBl+kaYofLdYIIyEwRmb1UMC9zt29M57GYsGnGYG5C2xGj0/R8g87+A7/4D2MDmkTQOAAA=</value>
+  </data>
 </root>
