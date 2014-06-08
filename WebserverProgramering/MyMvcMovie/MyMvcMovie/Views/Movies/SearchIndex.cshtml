@@ -5,14 +5,13 @@
     ViewBag.Title = "SearchIndex";
 }
 
-<h2>SearchIndex</h2>
 
 <p>
     @{
         if(WebSecurity.IsAuthenticated) {
             <p>@Html.ActionLink("Create New", "Create")</p>
         } else {
-            <h2>Please login before you can edit/delete movies</h2>
+            <h2>Please login before you can Create/Delete movies</h2>
         }
     }
     

@@ -184,11 +184,12 @@ namespace ProcuctStoreClient {
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/MovieApi", product);
                     if(response.IsSuccessStatusCode) {
                         Uri gizmoUrl = response.Headers.Location;
-
-                        response = await client.PutAsJsonAsync(gizmoUrl, product);
+                        listOfMovies.Add(product);
+                        Console.WriteLine("Succesfully created ur item! Press anykey");
+                        
                     }
-
-                    Console.WriteLine("Succesfully created ur item! Press anykey");
+                    Console.WriteLine("Failed to created ur item! Press anykey");
+                    
 
                     Console.ReadKey();
                     Console.Clear();
