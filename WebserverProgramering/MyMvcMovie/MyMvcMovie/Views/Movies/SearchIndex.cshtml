@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MyMvcMovie.Models.Movie>
+﻿@*Denna fil hanterar sökning av objekt via sidan*@
+@model IEnumerable<MyMvcMovie.Models.Movie>
 
 @{
     ViewBag.Title = "SearchIndex";
@@ -7,56 +8,69 @@
 <h2>SearchIndex</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-
-    @using(Html.BeginForm("SearchIndex", "Movies", FormMethod.Get)) {
-    <p>Genre: @Html.DropDownList("movieGenre", "All")
-   
-        Title: @Html.TextBox("SearchString") <br />
-        <input type="submit" value="Filter" />
-    </p>
+    @{
+        if(WebSecurity.IsAuthenticated) {
+            <p>@Html.ActionLink("Create New", "Create")</p>
+        } else {
+            <h2>Please login before you can edit/delete movies</h2>
+        }
     }
-
     
+    @using(Html.BeginForm("SearchIndex", "Movies", FormMethod.Get)) {
+        <p>
+            Genre: @Html.DropDownList("movieGenre", "All")
 
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Genre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach(var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
+            Title: @Html.TextBox("SearchString") <br />
+            <input type="submit" value="Filter" />
+        </p>
     }
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach(var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                @*Ser till så att användaren är inloggad för att Uppdatera/Ta bort*@
+                @{if(WebSecurity.IsAuthenticated) {
+
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                } else {
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    </td>
+                }
+                }
+
+            </tr>
+        }
+
+    </table>

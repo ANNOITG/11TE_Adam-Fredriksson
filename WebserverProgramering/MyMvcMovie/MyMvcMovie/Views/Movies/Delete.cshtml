@@ -1,7 +1,11 @@
-﻿@model MyMvcMovie.Models.Movie
+﻿@*Denna fil hanterar borttagning av objekt via sidan*@
+@model MyMvcMovie.Models.Movie
 
 @{
     ViewBag.Title = "Delete";
+    if(!WebSecurity.IsAuthenticated) {
+        Response.Redirect("~/Account/Register");
+    }
 }
 
 <h2>Delete</h2>
@@ -42,6 +46,6 @@
     @Html.AntiForgeryToken()
     <p>
         <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to List", "SearchIndex")
     </p>
 }

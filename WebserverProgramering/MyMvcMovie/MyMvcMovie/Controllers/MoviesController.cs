@@ -45,7 +45,7 @@ namespace MyMvcMovie.Controllers {
             if(ModelState.IsValid) {
                 db.Movies.Add(movie);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("SearchIndex");
             }
 
             return View(movie);
@@ -70,7 +70,7 @@ namespace MyMvcMovie.Controllers {
             if(ModelState.IsValid) {
                 db.Entry(movie).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("SearchIndex");
             }
             return View(movie);
         }
@@ -95,7 +95,7 @@ namespace MyMvcMovie.Controllers {
             Movie movie = db.Movies.Find(id);
             db.Movies.Remove(movie);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("SearchIndex");
         }
 
         protected override void Dispose(bool disposing) {

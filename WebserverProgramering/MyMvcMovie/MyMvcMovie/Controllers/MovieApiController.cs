@@ -9,8 +9,9 @@ using System.Web.Http;
 namespace MyMvcMovie.Controllers {
     //Denna klass är Api controllern, som sedan klienten skickar info till och tar emot.
     public class MovieApiController : ApiController {
-        
+
         static readonly IMovieRepository repository = new MovieRepository();
+        //Denna metod retunerar hela listan av föremål till önskad ställe
         public IEnumerable<Movie> GetAllProducts() {
             return repository.GetAll();
         }
@@ -32,12 +33,24 @@ namespace MyMvcMovie.Controllers {
             response.Headers.Location = new Uri(uri);
             return response;
         }
-
-        public void PutProduct(int id, Movie movie) {
-            movie.ID = id;
-            if(!repository.Update(movie)) {
+        //Första metoden som kallas från .net clienten. Updatererar 
+        public void PutProduct(Movie movie) {
+            if(movie != null) {
+                if(!repository.Update(movie)) {
+                    throw new HttpResponseException(HttpStatusCode.NotFound);
+                }
+            }
+        }
+        //denna metod kalas på när användaren vill ta bort en produkt.
+        public void DeleteProduct(int id) {
+            Movie item = repository.Get(id);
+            //Kollar så att föremålet inte är tomt som man ska tabort
+            if(item == null) {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
+
+            repository.Remove(id);
+
         }
     }
 }

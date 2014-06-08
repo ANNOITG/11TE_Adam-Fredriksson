@@ -1,4 +1,5 @@
-﻿@model MyMvcMovie.Models.Movie
+﻿@*Denna fil hanterar detaljer av objekt via sidan*@
+@model MyMvcMovie.Models.Movie
 
 @{
     ViewBag.Title = "Details";
@@ -38,6 +39,5 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "SearchIndex")
 </p>

@@ -1,7 +1,11 @@
-﻿@model MyMvcMovie.Models.Movie
+﻿@*Denna fil hanterar skapning av objekt via sidan*@
+@model MyMvcMovie.Models.Movie
 
 @{
     ViewBag.Title = "Create";
+    if(!WebSecurity.IsAuthenticated) {
+        Response.Redirect("~/Account/Register");
+    }
 }
 
 <h2>Create</h2>
@@ -60,7 +64,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "SearchIndex")
 </div>
 
 @section Scripts {

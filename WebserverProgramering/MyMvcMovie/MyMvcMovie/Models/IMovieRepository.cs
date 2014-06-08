@@ -12,5 +12,8 @@ namespace MyMvcMovie.Models {
         Movie Add(Movie item);
         //void Remove(int id);
         bool Update(Movie item);
+
+        void Remove(int id);
+        
     }
 }

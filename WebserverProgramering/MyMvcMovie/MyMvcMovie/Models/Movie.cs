@@ -6,6 +6,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyMvcMovie.Models {
+    //Huvud klassen till filmerna
     public class Movie {
 
         public int ID { get; set; }
@@ -21,7 +22,7 @@ namespace MyMvcMovie.Models {
         [StringLength(5)]
         public string Rating { get; set; }
     }
-
+    //Databas klase
     public class MovieDBContext : DbContext {
         public DbSet<Movie> Movies { get; set; }
     }
