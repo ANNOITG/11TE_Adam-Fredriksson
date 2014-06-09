@@ -182,13 +182,15 @@ namespace ProcuctStoreClient {
 
                     //Retunerar ett http respons från hemsidan.
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/MovieApi", product);
-                    if(response.IsSuccessStatusCode) {
+                    if (response.IsSuccessStatusCode) {
                         Uri gizmoUrl = response.Headers.Location;
                         listOfMovies.Add(product);
                         Console.WriteLine("Succesfully created ur item! Press anykey");
-                        
+
+                    } else {
+                        Console.WriteLine("Failed to created ur item! Press anykey");
                     }
-                    Console.WriteLine("Failed to created ur item! Press anykey");
+                    
                     
 
                     Console.ReadKey();
